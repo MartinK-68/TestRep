@@ -1,0 +1,40 @@
+{
+    "type": "Microsoft.VirtualMachineImages",
+    "apiVersion": "2019-05-01-preview",
+    "location": "uswest",
+    "dependsOn": [],
+    "properties": {
+        "source": {
+            "type": "ManagedImage",
+                "imageId": "/subscriptions/2dba77be-5f46-4e11-acc5-ae06fafe29ec/resourceGroups/Sage_UK_devOpsSIG/providers/Microsoft.Compute/images/prodimages"
+ 
+            
+        },
+		"customize": [
+            {
+                "type": "WindowsUpdate",
+                "searchCriteria": "IsInstalled=0",
+                "filters": [
+                    "exclude:$_.Title -like '*Preview*'",
+                    "include:$true"
+                            ],
+                "updateLimit": 20
+            }
+        ],
+        "distribute": 
+            [
+                {   
+                    "type": "SharedImage",
+                    "galleryImageId": "/subscriptions/2dba77be-5f46-4e11-acc5-ae06fafe29ec/resourceGroups/Sage_UK_devOpsSIG/providers/Microsoft.Compute/galleries/Sage_UK_devOpsSIG/images/prodimages",
+                    "runOutputName": "aibWindows",
+                    "artifactTags": {
+                        "source": "azureVmImageBuilder",
+                        "baseosimg": "Win10Image"
+                    },
+                    "replicationRegions": [
+                      "ukwest"
+                    ]
+                }
+            ]
+        }
+    }
