@@ -22,7 +22,7 @@
                 "publisher": "MicrosoftWindowsServer",
                 "offer": "WindowsServer",
                 "sku": "2019-Datacenter",
-                "version": "2019.0.20190214"
+                "version": "latest"
             
         },
         "customize": [
