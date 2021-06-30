@@ -54,33 +54,30 @@
                 
             },
             "customize": [
-
+                    
+                    {
+                        "type": "File",
+                        "name": "downloadBuildArtifacts",
+                        "sourceUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/artifacts.zip",
+                        "destination":"c:\\buildArtifacts\\artifacts.zip"
+                    }, 	
+                    { 
+                         "type": "PowerShell", 
+                         "name": "ExtractZip", 
+                         "inline": "Expand-Archive -LiteralPath 'c:\buildArtifacts\artifacts.zip' -DestinationPath C:\buildArtifacts", 
+                         "validExitCodes": "0",
+                         "runElevated": "true" 
+                    },
                     {
                         "type": "PowerShell",
-                        "name": "CreateBuildPath",
-                        "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1"
+                        "name": "SageFileShare",
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/SageFileShare.ps1"
                     },
                     {
                         "type": "WindowsRestart",
                         "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
                         "restartTimeout": "5m"
-                    },
-                    {
-                        "type": "File",
-                        "name": "downloadBuildArtifacts",
-                        "sourceUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html",
-                        "destination":"c:\\buildArtifacts\\index.html"
-                    },
-        
-                    {
-                        "type": "PowerShell",
-                        "name": "settingUpMgmtAgtPath",
-                        "inline": [
-                            "mkdir c:\\buildActions",
-                            "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt"
-                        ]
-                    },
-                        
+                    },  
                     {
                         "type": "WindowsUpdate",
                         "searchCriteria": "IsInstalled=0",
