@@ -1,0 +1,1 @@
+Expand-Archive -LiteralPath c:\\buildArtifacts\\artifacts.zip -DestinationPath C:\\buildArtifacts
