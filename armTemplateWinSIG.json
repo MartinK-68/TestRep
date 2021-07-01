@@ -61,12 +61,10 @@
                         "sourceUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/artifacts.zip",
                         "destination":"c:\\buildArtifacts\\artifacts.zip"
                     }, 	
-                    { 
-                         "type": "PowerShell", 
-                         "name": "ExtractZip", 
-                         "inline": "Expand-Archive -LiteralPath 'c:\\buildArtifacts\\artifacts.zip' -DestinationPath 'C:\\buildArtifacts'", 
-                         "validExitCodes": "0",
-                         "runElevated": "true" 
+                    {
+                        "type": "PowerShell",
+                        "name": "UnzipArtifacts",
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/UnzipArtifacts.ps1"
                     },
                     {
                         "type": "PowerShell",
