@@ -64,7 +64,7 @@
                     { 
                          "type": "PowerShell", 
                          "name": "ExtractZip", 
-                         "inline": "Expand-Archive -LiteralPath 'c:\\buildArtifacts\\artifacts.zip' -DestinationPath C:\buildArtifacts", 
+                         "inline": "Expand-Archive -LiteralPath c:\buildArtifacts\artifacts.zip -DestinationPath C:\buildArtifacts", 
                          "validExitCodes": "0",
                          "runElevated": "true" 
                     },
