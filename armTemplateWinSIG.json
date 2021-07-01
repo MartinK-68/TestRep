@@ -58,7 +58,7 @@
                     {
                         "type": "File",
                         "name": "downloadBuildArtifacts",
-                        "sourceUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/artifacts.zip",
+                        "sourceUri": "https://github.com/SDuff01/TestRep/blob/master/Artifacts.zip?raw=true",
                         "destination":"c:\\buildArtifacts\\artifacts.zip"
                     }, 	
                     {
