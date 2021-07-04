@@ -74,7 +74,7 @@
                     {
                         "type": "PowerShell",
                         "name": "RunTimezoneScript",
-                        "inline": "Invoke-Expression -Command 'c:\\buildArtifacts\\artifacts\\Timezone\\testscript.ps1'"
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/RunTimezoneArtifact.ps1"
                     },
                     {
                         "type": "PowerShell",
