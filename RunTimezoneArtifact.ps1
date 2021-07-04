@@ -1,0 +1,1 @@
+﻿Invoke-Expression -Command 'c:\\buildArtifacts\\artifacts\\Timezone\\artifact-main.ps1'
