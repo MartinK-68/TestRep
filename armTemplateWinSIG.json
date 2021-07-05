@@ -74,6 +74,7 @@
                     {
                         "type": "PowerShell",
                         "name": "RunTimezoneScript",
+                        "runElevated": true,
                         "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/RunTimezoneArtifact.ps1"
                     },
                     {
