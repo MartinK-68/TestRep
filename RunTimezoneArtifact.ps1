@@ -1,1 +1,1 @@
-﻿Invoke-Expression -Command 'c:\\buildArtifacts\\artifacts\\Timezone\\artifact-main.ps1'
+﻿powershell.exe -executionpolicy bypass -file 'c:\\buildArtifacts\\artifacts\\Timezone\\artifact-main.ps1'
