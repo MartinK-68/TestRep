@@ -75,7 +75,10 @@
                         "type": "PowerShell",
                         "name": "RunTimezoneScript",
                         "runElevated": true,
-                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/RunTimezoneArtifact.ps1"
+                        "inline": [ 
+                        "sudo set-executionpolicy unrestricted -force",
+                        "sudo powershell.exe -executionpolicy bypass -file c:\buildArtifacts\artifacts\Timezone\artifact-main.ps1"    
+                        ]
                     },
                     {
                         "type": "PowerShell",
