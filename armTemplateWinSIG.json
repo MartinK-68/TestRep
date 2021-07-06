@@ -76,6 +76,7 @@
                         "name": "RunTimezoneScript",
                         "runElevated": true,
                         "inline": [
+                            "sudo set-executionpolicy unrestricted -force",
                             "sudo powershell.exe -executionpolicy bypass -file c:\\buildArtifacts\\artifacts\\Timezone\\artifact-main.ps1",
                         ]
                     },
