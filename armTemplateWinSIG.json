@@ -88,7 +88,17 @@
                             "exclude:$_.Title -like '*Preview*'",
                             "include:$true"
                                     ],
-                        "updateLimit": 40
+                        "updateLimit": 50
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "TimeZone",
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/RunTimezoneArtifact.ps1"
+                    },
+                    {
+                        "type": "WindowsRestart2",
+                        "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
+                        "restartTimeout": "5m"
                     }
 
             ],
