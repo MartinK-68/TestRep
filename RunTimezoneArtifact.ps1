@@ -1,2 +1,3 @@
-set-executionpolicy unrestricted -force
-powershell.exe -executionpolicy bypass -file 'c:\\buildArtifacts\\artifacts\\Timezone\\artifact-main.ps1'
+Set-WinSystemLocale -SystemLocale en-GB
+Set-TimeZone -Name "GMT Standard Time"
+Set-WinUserLanguageList -Language en-GB -Force
