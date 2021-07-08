@@ -19,3 +19,10 @@ New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows' -Name 'OOBE' -Force
 New-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\OOBE' -PropertyType DWord -Name 'DisablePrivacyExperience' -Value 1 -Force
 New-Item -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion' -Name 'UserProfileEngagement' -Force
 New-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement' -PropertyType DWord -Name 'ScoobeSystemSettingEnabled' -Value 0 -Force
+#Disable services to stop 10 minute please wait message when logging in
+$svc_name = 'Network List Service'
+Set-Service -StartupType Disabled $svc_name
+$svc_name2 = 'Network Location Awareness'
+Set-Service -StartupType Disabled $svc_name2
+$svc_name3 = 'Error Reporting Service'
+Set-Service -StartupType Disabled $svc_name3
