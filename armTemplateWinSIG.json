@@ -77,6 +77,12 @@
                         "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/TurnOffWin10Personalization.ps1"
                     },
                     {
+                        "type": "PowerShell",
+                        "name": "InstallDotNet35",
+                        "runElevated": true,
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/InstallDotNet35.ps1"
+                    },
+                    {
                         "type": "WindowsRestart",
                         "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
                         "restartTimeout": "5m"
