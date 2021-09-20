@@ -72,14 +72,9 @@
                     {
                         "type": "PowerShell",
                         "name": "TurnOffWin10Personalization",
+                        "runElevated": true,
+                        "runAsSystem": true,
                         "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/TurnOffWin10Personalization.ps1"
-                    },
-                    {
-                        "type": "PowerShell",
-                        "name": "InlineInstallDotNet35",
-                        "inline": [
-                           "Dism /online /Enable-Feature /FeatureName:\"NetFx3\""
-                        ]
                     },
                     {
                         "type": "WindowsRestart",
