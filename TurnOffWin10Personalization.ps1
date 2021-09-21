@@ -1,4 +1,4 @@
-Dism /online /Enable-Feature /FeatureName:"NetFx3"
+#Dism /online /Enable-Feature /FeatureName:"NetFx3"
 New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft' -Name 'InputPersonalization' -Force
 New-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\InputPersonalization' -PropertyType DWord -Name 'AllowInputPersonalization' -Value 0 -Force 
 New-Item -Path 'HKCU:\SOFTWARE\Microsoft\Speech_OneCore' -Name 'Settings' -Force
