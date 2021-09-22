@@ -1,7 +1,7 @@
-﻿Param(
-	[Parameter(Mandatory=$True, Position=0, HelpMessage="keyvalue")]
-	[string]$driveKey
-)
+#Param(
+#	[Parameter(Mandatory=$True, Position=0, HelpMessage="keyvalue")]
+#	[string]$driveKey
+#)
 ###################################################################################################
 #
 # PowerShell configurations
@@ -61,7 +61,7 @@ New-ItemProperty -Path $path -Name $name -Value $value `
 $DriveLetter = 'Z'
 #Start installing the share
 $Letter = $DriveLetter+":"
-$acctKey = $driveKey
+$acctKey = "oILYUkVFq5h7gciR/YyS+RrF41WNPBgcRheMD+kcc7+Tlfn86O9XfMmTEbLrniXmSKDQcXldRZPZzO8qm0Qwqg=="
 [string]$user = 'sageazuredevtestlabs\sageazuredevtestlabs'
 
 #Install Key for user running PS
