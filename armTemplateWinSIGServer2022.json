@@ -10,9 +10,6 @@
         },
         "svclocation": {
             "type": "string"
-        },
-        "acctKey": {
-            "type": "string"
         }
     },
     
