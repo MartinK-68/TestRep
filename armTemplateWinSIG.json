@@ -71,6 +71,11 @@
                     },
                     {
                         "type": "PowerShell",
+                        "name": "SageFileShare",
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/SageFileShare.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
                         "name": "TurnOffWin10Personalization",
                         "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/TurnOffWin10Personalization.ps1"
                     },
