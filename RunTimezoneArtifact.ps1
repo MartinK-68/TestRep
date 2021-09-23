@@ -22,13 +22,17 @@ pushd $PSScriptRoot
 #
 # Functions used in this script.
 #
-$scriptFolder = "c:\\buildArtifacts\\Artifacts\\TimeZone"
-$functionFiles = Get-ChildItem -Path $scriptFolder\* -Include "*artifact-funcs*.ps1" -Exclude "*.tests.ps1" 
-foreach($file in $functionFiles)
-{
-    $fileName = $file.Name
-    ."./$fileName"
-}
+$scriptFolder = "c:\buildArtifacts\Artifacts\TimeZone"
+$b = Get-ChildItem -Path $scriptFolder
+write-host $b
+#$functionFiles = Get-ChildItem -Path $scriptFolder\* -Include '*artifact-funcs*.ps1' -Exclude '*.tests.ps1' 
+.$scriptFolder\artifact-funcs.ps1
+#foreach($file in $functionFiles)
+#{
+#    $fileName = $file.Name
+#    ."./$fileName"
+#    Write-Host($file.Name);
+#}
 
 ###################################################################################################
 
@@ -40,7 +44,7 @@ trap
 {
     # NOTE: This trap will handle all errors. There should be no need to use a catch below in this
     #       script, unless you want to ignore a specific error.
-    Handle-LastError
+    #Handle-LastError
 }
 
 ###################################################################################################
@@ -58,7 +62,7 @@ try
     
     $region = "GB"
 
-    iex ".\artifact.ps1 $region"
+    .$scriptFolder\artifact.ps1 -Region $region
 
     Write-Host 'Artifact installed successfully.'
 }
