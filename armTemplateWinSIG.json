@@ -103,7 +103,7 @@
                     {
                         "type": "PowerShell",
                         "name": "TimeZone",
-                        "scriptUri": "c:\\buildartifacts\\Artifacts\\TimeZone\\artifact-main.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/RunTimezoneArtifact.ps1"
                     },
                     {
                         "type": "WindowsRestart",
