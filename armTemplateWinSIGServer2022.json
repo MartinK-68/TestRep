@@ -72,7 +72,7 @@
                     {
                         "type": "PowerShell",
                         "name": "SageFileShare",
-                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/SageFileShare.ps1 > [parameters('acctKey')]"
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/SageFileShare.ps1" "[parameters('acctKey')]"
                     },
                     {
                         "type": "PowerShell",
