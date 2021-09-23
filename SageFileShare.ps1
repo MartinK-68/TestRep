@@ -1,5 +1,5 @@
 Param(
-	[Parameter(Mandatory=$True, Position=0, HelpMessage="keyvalue")]
+	[Parameter(Mandatory=$False, Position=0, HelpMessage="keyvalue")]
 	[string]$driveKey
 )
 ###################################################################################################
