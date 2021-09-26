@@ -63,17 +63,14 @@
                         "name": "downloadBuildArtifacts",
                         "sourceUri": "https://github.com/SDuff01/TestRep/blob/master/Artifacts.zip?raw=true",
                         "destination":"c:\\buildArtifacts\\artifacts.zip"
-                    }, 	
-                    {
-                        "type": "PowerShell",
-                        "name": "UnzipArtifacts",
-                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/UnzipArtifacts.ps1"
                     },
                     {
-                        "type": "PowerShell",
-                        "name": "SageFileShare",
-                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/SageFileShare.ps1 -- [parameters('acctKey')]"
-                    },
+			            "type": "PowerShell",
+                	    "name": "SharedDrive",
+                	    "inline": [
+                 	    "c:\\buildArtifacts\\Artifacts\\SageFileShare.ps1 [parameters('acctKey')]"
+                	        ]
+		            },
                     {
                         "type": "PowerShell",
                         "name": "TurnOffWin10Personalization",
