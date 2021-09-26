@@ -68,7 +68,8 @@
 			            "type": "PowerShell",
                 	    "name": "SharedDrive",
                 	    "inline": [
-                 	    "c:\\buildArtifacts\\Artifacts\\SageFileShare.ps1 [parameters('acctKey')]"
+			    "Write-Host [concat(c:\\buildArtifacts\\Artifacts\\SageFileShare.ps1, ' ', [parameters('acctKey')]]",
+                 	    "[concat(c:\\buildArtifacts\\Artifacts\\SageFileShare.ps1, ' ', [parameters('acctKey')]]"
                 	        ]
 		            },
                     {
