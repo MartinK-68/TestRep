@@ -13,7 +13,12 @@
         },
         "acctKey": {
             "type": "string"
-        }
+        },
+	"powerShellStatement": {
+      	    "type": "string",
+            "defaultValue": "[concat(c:\\buildArtifacts\\Artifacts\\SageFileShare.ps1, ' ', [parameters('acctKey')]]"
+    	}
+       },
     },
     
     "variables": {
@@ -68,8 +73,7 @@
 			            "type": "PowerShell",
                 	    "name": "SharedDrive",
                 	    "inline": [
-			    "Write-Host [concat(c:\\buildArtifacts\\Artifacts\\SageFileShare.ps1, ' ', [parameters('acctKey')]]",
-                 	    "[concat('c:\\buildArtifacts\\Artifacts\\SageFileShare.ps1', ' ', [parameters('acctKey')]]"
+			    "[parameters('powerShellStatement')]"
                 	        ]
 		            },
                     {
