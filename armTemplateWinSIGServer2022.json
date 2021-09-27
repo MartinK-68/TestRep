@@ -18,7 +18,6 @@
       	    "type": "string",
             "defaultValue": "[concat(c:\\buildArtifacts\\Artifacts\\SageFileShare.ps1, ' ', [parameters('acctKey')]]"
     	}
-       },
     },
     
     "variables": {
@@ -70,12 +69,12 @@
                         "destination":"c:\\buildArtifacts\\artifacts.zip"
                     },
                     {
-			            "type": "PowerShell",
-                	    "name": "SharedDrive",
-                	    "inline": [
+			 "type": "PowerShell",
+                	 "name": "SharedDrive",
+                	 "inline": [
 			    "[parameters('powerShellStatement')]"
                 	        ]
-		            },
+		    },
                     {
                         "type": "PowerShell",
                         "name": "TurnOffWin10Personalization",
