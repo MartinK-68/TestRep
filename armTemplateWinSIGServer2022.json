@@ -16,7 +16,7 @@
         },
 	"powerShellStatement": {
       	    "type": "string",
-            "defaultValue": "[concat('c:\\buildArtifacts\\Artifacts\\SageFileShare.ps1', ' ', [parameters('acctKey')]]"
+            "defaultValue": "[concat('c:\\buildArtifacts\\Artifacts\\SageFileShare.ps1', ' ', '[parameters('acctKey')]']"
     	}
     },
     
