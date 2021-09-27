@@ -16,7 +16,7 @@
         },
 	"powerShellStatement": {
       	    "type": "string",
-            "defaultValue": "[concat('cd c:\\buildArtifacts\\Artifacts | .\SageFileShare.ps1', ' ', parameters('acctKey'))]"
+            "defaultValue": "[concat('.\\SageFileShare.ps1', ' ', parameters('acctKey'))]"
     	}
     },
     
@@ -72,6 +72,7 @@
 			 "type": "PowerShell",
                 	 "name": "SharedDrive",
                 	 "inline": [
+			    "cd 'c:\\buildArtifacts\\Artifacts'",
 			    "[parameters('powerShellStatement')]"
                 	        ]
 		    },
