@@ -62,29 +62,43 @@
             },
             "customize": [
                     
-                    {
+                   {
                         "type": "File",
                         "name": "downloadBuildArtifacts",
                         "sourceUri": "https://github.com/SDuff01/TestRep/blob/master/Artifacts.zip?raw=true",
                         "destination":"c:\\buildArtifacts\\artifacts.zip"
-                    },
-		    {
+                    }, 	
+                    {
                         "type": "PowerShell",
                         "name": "UnzipArtifacts",
                         "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/UnzipArtifacts.ps1"
                     },
                     {
-			 "type": "PowerShell",
-                	 "name": "SharedDrive",
-                	 "inline": [
-			    "cd 'c:\\buildArtifacts\\Artifacts'",
-			    "[parameters('powerShellStatement')]"
-                	        ]
-		    },
+                        "type": "PowerShell",
+                             "name": "SharedDrive",
+                             "inline": [
+                        "cd 'c:\\buildArtifacts\\Artifacts'",
+                        "[parameters('powerShellStatement')]"
+                                    ]
+                    },
                     {
                         "type": "PowerShell",
                         "name": "TurnOffWin10Personalization",
                         "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/TurnOffWin10Personalization.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "InstallDotNet35",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/InstallDotNet35.ps1"
+                    },
+		    {
+                        "type": "PowerShell",
+                        "name": "InstallDotNet47AndTurnOffDash",
+                        "runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/InstallDotNet47AndTurnOffDash.ps1"
                     },
                     {
                         "type": "WindowsRestart",
