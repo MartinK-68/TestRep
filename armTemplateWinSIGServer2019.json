@@ -1,0 +1,136 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "imageTemplateName": {
+        "type": "string"
+        },
+        "api-version": {
+          "type": "string"
+        },
+        "svclocation": {
+            "type": "string"
+        },
+        "acctKey": {
+            "type": "string"
+        },
+	"powerShellStatement": {
+      	    "type": "string",
+            "defaultValue": "[concat('.\\SageFileShare.ps1', ' ', parameters('acctKey'))]"
+    	}
+    },
+    
+    "variables": {
+    },
+
+
+    "resources": [
+      {
+        "name": "[parameters('imageTemplateName')]",
+        "type": "Microsoft.VirtualMachineImages/imageTemplates",
+        "apiVersion": "[parameters('api-version')]",
+        "location": "[parameters('svclocation')]",
+        "dependsOn": [],
+        "tags": {
+            "imagebuilderTemplate": "AzureImageBuilderSIG",
+            "userIdentity": "enabled"
+                },
+            "identity": {
+                "type": "UserAssigned",
+                        "userAssignedIdentities": {
+                        "<imgBuilderId>": {}
+                            
+                    }
+                    },
+        
+        "properties": {
+            "buildTimeoutInMinutes" : 100,
+
+            "vmProfile": 
+                    {
+                    "vmSize": "Standard_D1_v2",
+                    "osDiskSizeGB": 127
+                    },
+        
+            "source": {
+                "type": "PlatformImage",
+                    "publisher": "MicrosoftWindowsServer",
+                    "offer": "WindowsServer",
+                    "sku": "2019-Datacenter",
+                    "version": "latest"
+                
+            },
+            "customize": [
+                    
+                    {
+                        "type": "File",
+                        "name": "downloadBuildArtifacts",
+                        "sourceUri": "https://github.com/SDuff01/TestRep/blob/master/Artifacts.zip?raw=true",
+                        "destination":"c:\\buildArtifacts\\artifacts.zip"
+                    },
+		    {
+                        "type": "PowerShell",
+                        "name": "UnzipArtifacts",
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/UnzipArtifacts.ps1"
+                    },
+                    {
+			 "type": "PowerShell",
+                	 "name": "SharedDrive",
+                	 "inline": [
+			    "cd 'c:\\buildArtifacts\\Artifacts'",
+			    "[parameters('powerShellStatement')]"
+                	        ]
+		    },
+                    {
+                        "type": "PowerShell",
+                        "name": "TurnOffWin10Personalization",
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/TurnOffWin10Personalization.ps1"
+                    },
+                    {
+                        "type": "WindowsRestart",
+                        "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
+                        "restartTimeout": "5m"
+                    },  
+                    {
+                        "type": "WindowsUpdate",
+                        "searchCriteria": "IsInstalled=0",
+                        "filters": [
+                            "exclude:$_.Title -like '*Preview*'",
+                            "include:$true"
+                                    ],
+                        "updateLimit": 50
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "TimeZone",
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/RunTimezoneArtifact.ps1"
+                    },
+                    {
+                        "type": "WindowsRestart",
+                        "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
+                        "restartTimeout": "5m"
+                    }
+
+            ],
+            "distribute": 
+            [
+                {   
+                    "type": "SharedImage",
+                    "galleryImageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>",
+                    "runOutputName": "<runOutputName>",
+                    "artifactTags": {
+                        "source": "azureVmImageBuilder",
+                        "baseosimg": "windows2019"
+                    },
+                    "replicationRegions": [
+                      "<region1>",
+                      "<region2>"
+                    ]
+                }
+            ]
+            }
+        }
+
+    
+    ]
+}
