@@ -4,5 +4,5 @@ Write-Host "Running Artifact Install .net3.5"
 #choco install dotnet3.5 -y
 #Start-Sleep -s 20
 #Get-Content -Path C:\ProgramData\chocolatey\logs\chocolatey.log
-Dism /online /Enable-Feature /FeatureName:"NetFx3"
+Dism /online /Enable-Feature /FeatureName:"NetFx3" /all
 Write-Host "Completed Artifact Install .net3.5"
