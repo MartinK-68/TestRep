@@ -86,6 +86,13 @@
                         "name": "TurnOffWin10Personalization",
                         "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/TurnOffWin10Personalization.ps1"
                     },
+		    {
+                        "type": "PowerShell",
+                        "name": "InstallChocolately",
+			"runElevated": true,
+                        "runAsSystem": true,
+                        "scriptUri": "https://raw.githubusercontent.com/SDuff01/TestRep/master/InstallChocolately.ps1"
+                    },
                     {
                         "type": "WindowsRestart",
                         "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
